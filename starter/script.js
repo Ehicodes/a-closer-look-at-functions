@@ -21,4 +21,31 @@ const creatBooking = function (
 
 creatBooking('LHI23');
 creatBooking('LH123', 2, 800);
-creatBooking('LH123', 5);
+creatBooking('LH123', undefined);
+
+//passing arguments
+const flight = 'LH234';
+const ehi = {
+  name: 'Ehinomen Osaigbovo',
+  passport: 29020339049,
+};
+
+const checkIn = function (flightnNum, passenger) {
+  flightnNum = 'LH459';
+  passenger.name = 'Miss. ' + passenger.name;
+  if ((passenger.passport = 29020339049)) {
+    alert('Check in');
+  } else {
+    alert('Wrong passport');
+  }
+};
+// checkIn(flight, ehi);
+// console.log(flight);
+// console.log(ehi);
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 1000000000000);
+};
+
+newPassport(ehi);
+checkIn(flight, ehi);
