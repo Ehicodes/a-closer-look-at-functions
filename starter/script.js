@@ -89,3 +89,20 @@ const transformer2 = function (str, fn) {
 };
 
 transformer('JavaScript is the best', upperSecondWord);
+
+//functions returning functions
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey 🌺');
+greeterHey('Ehi');
+
+//another way
+greet('Hello')('Ehinomen');
+
+//arrow function
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('Hi')('Ehiii');
