@@ -77,3 +77,15 @@ const high5 = function () {
 
 document.body.addEventListener('click', high5);
 ['Ehi', 'Martha', 'Adam'].forEach(high5);
+
+//My example
+const upperSecondWord = function (str) {
+  const [first, second, third, fourth] = str.split(' ');
+  return [first, second, third, fourth.toUpperCase()].join(' ');
+};
+
+const transformer2 = function (str, fn) {
+  console.log(`Transformed String: ${fn(str)}`);
+};
+
+transformer('JavaScript is the best', upperSecondWord);
