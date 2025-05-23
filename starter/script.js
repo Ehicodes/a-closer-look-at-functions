@@ -52,6 +52,7 @@ checkIn(flight, ehi);
 */
 
 //FUNCTIONS ACCEPTING CALLBACK FUNCTIONS
+/*
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
@@ -106,3 +107,51 @@ greet('Hello')('Ehinomen');
 //arrow function
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi')('Ehiii');
+*/
+
+//THE CALL METHODS
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightnNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightnNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightnNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Osaigbovo Ehinomen');
+lufthansa.book(645, 'John Doe');
+//E.G THE LUFTHANSA GROUP CREATED A NEW ARILINE
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+// book(23, 'Sarah Williams'); does not work
+//the call method
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 345, 'Mary Cooper');
+
+//APPLY METHOD
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData); //another way
