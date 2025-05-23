@@ -188,6 +188,7 @@ const addVAT = addTax.bind(null, 0.23);
 console.log(addVAT(100));
 console.log(addVAT(200));
 
+//another way
 const addTaxRate = function (rate) {
   return function (value) {
     return value + value * rate;
