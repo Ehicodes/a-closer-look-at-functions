@@ -43,15 +43,23 @@ const poll = {
   answers: new Array(4).fill(0),
 
   registerNewAnswer() {
+    //1.1
     const inputData = Number(
       prompt(`${this.question}\n${this.options.join('\n')}`)
     );
-
-    if (typeof inputData === 'number' && inputData < this.answers.length) {
+    //1.2
+    // if (typeof inputData === 'number' && inputData < this.answers.length) {
+    //   this.answers[inputData]++;
+    //   console.log(this.answers);
+    // }
+    //short circuiting
+    typeof inputData === 'number' &&
+      inputData < this.answers.length &&
       this.answers[inputData]++;
-      console.log(this.answers);
-    }
   },
 };
 
-poll.registerNewAnswer();
+//2
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
