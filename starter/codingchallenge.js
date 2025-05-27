@@ -43,8 +43,14 @@ const poll = {
   answers: new Array(4).fill(0),
 
   registerNewAnswer() {
-    const inputData = prompt(`${this.question}\n${this.options.join('\n')}`);
-    console.log(typeof this.options);
+    const inputData = Number(
+      prompt(`${this.question}\n${this.options.join('\n')}`)
+    );
+
+    if (typeof inputData === 'number' && inputData < this.answers.length) {
+      this.answers[inputData]++;
+      console.log(this.answers);
+    }
   },
 };
 
