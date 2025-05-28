@@ -50,12 +50,23 @@ const poll = {
     //1.2
     // if (typeof inputData === 'number' && inputData < this.answers.length) {
     //   this.answers[inputData]++;
-    //   console.log(this.answers);
     // }
     //short circuiting
     typeof inputData === 'number' &&
       inputData < this.answers.length &&
       this.answers[inputData]++;
+
+    this.displayResults();
+  },
+
+  //3
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else type === 'string';
+    {
+      console.log(`The Poll Results are:`);
+    }
   },
 };
 
